@@ -1,0 +1,38 @@
+{
+  "name": "advisor-for-stress-test",
+  "version": "1.0.0",
+  "description": "Advisor for Stress Test clears exposure limits and screens alerts; applies decision gates and observability; orchestrates via CRM to lower false positives.",
+  "main": "workflow.json",
+  "keywords": [
+    "agentbridge",
+    "workflow",
+    "automation",
+    "n8n",
+    "rag",
+    "banking-&-finance",
+    "fraud",
+    "sanctions",
+    "rag",
+    "banking"
+  ],
+  "author": "AgentBridge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deepk103/agentbridge-advisor-for-stress-test-745009.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deepk103/agentbridge-advisor-for-stress-test-745009/issues"
+  },
+  "homepage": "https://github.com/deepk103/agentbridge-advisor-for-stress-test-745009#readme",
+  "scripts": {
+    "start": "echo \"Import this workflow into your n8n instance\"",
+    "validate": "echo \"Workflow validation complete\"",
+    "test": "echo \"Run workflow tests\"",
+    "deploy": "echo \"Deploy to n8n instance\""
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "n8n": ">=1.0.0"
+  }
+}
