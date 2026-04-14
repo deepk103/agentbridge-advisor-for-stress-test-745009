@@ -1,0 +1,408 @@
+{
+  "id": "tpl-3963699285",
+  "name": "Advisor for Stress Test",
+  "description": "Advisor for Stress Test clears exposure limits and screens alerts; applies decision gates and observability; orchestrates via CRM to lower false positives.",
+  "industry": "Banking & Finance",
+  "pattern": "RAG",
+  "complexity": "Intermediate",
+  "rating": 4.9,
+  "downloads": 27217,
+  "favorites": 1044,
+  "executionTime": "15 min",
+  "tags": [
+    "fraud",
+    "sanctions",
+    "rag",
+    "banking"
+  ],
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Transfer Intake",
+      "description": "Collect, validate and normalize statements from Case Management; attach a runId and timestamp for traceability."
+    },
+    {
+      "id": "retrieve-0",
+      "name": "Retrieve",
+      "description": "Execute retrieve phase for the RAG pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "ground-1",
+      "name": "Ground",
+      "description": "Execute ground phase for the RAG pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "risk-scoring-0",
+      "name": "Risk Scoring",
+      "description": "Risk Scoring across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "portfolio-check-1",
+      "name": "Portfolio Check",
+      "description": "Portfolio Check across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "sanctions-screening-2",
+      "name": "Sanctions Screening",
+      "description": "Sanctions Screening across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "limit-control-3",
+      "name": "Limit Control",
+      "description": "Limit Control across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "underwriting-4",
+      "name": "Underwriting",
+      "description": "Underwriting across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "break-resolution-5",
+      "name": "Break Resolution",
+      "description": "Break Resolution across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "finalize",
+      "name": "Case Closure",
+      "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to SWIFT Gateway; return response JSON for the client."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "Transfer Intake",
+        "description": "Collect, validate and normalize statements from Case Management; attach a runId and timestamp for traceability.",
+        "nodeType": "input",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "retrieve-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Retrieve",
+        "description": "Execute retrieve phase for the RAG pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "ground-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Ground",
+        "description": "Execute ground phase for the RAG pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "risk-scoring-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Risk Scoring",
+        "description": "Risk Scoring across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "portfolio-check-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Portfolio Check",
+        "description": "Portfolio Check across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "sanctions-screening-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "Sanctions Screening",
+        "description": "Sanctions Screening across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    },
+    {
+      "id": "limit-control-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "Limit Control",
+        "description": "Limit Control across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1560,
+        "y": 120
+      }
+    },
+    {
+      "id": "underwriting-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "Underwriting",
+        "description": "Underwriting across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1810,
+        "y": 120
+      }
+    },
+    {
+      "id": "break-resolution-5",
+      "type": "agentbridge",
+      "data": {
+        "label": "Break Resolution",
+        "description": "Break Resolution across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 2060,
+        "y": 120
+      }
+    },
+    {
+      "id": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "Case Closure",
+        "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to SWIFT Gateway; return response JSON for the client.",
+        "nodeType": "output",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 2310,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "intake",
+      "target": "retrieve-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-1",
+      "source": "retrieve-0",
+      "target": "ground-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-2",
+      "source": "ground-1",
+      "target": "risk-scoring-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-3",
+      "source": "risk-scoring-0",
+      "target": "portfolio-check-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-4",
+      "source": "portfolio-check-1",
+      "target": "sanctions-screening-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-5",
+      "source": "sanctions-screening-2",
+      "target": "limit-control-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-6",
+      "source": "limit-control-3",
+      "target": "underwriting-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-7",
+      "source": "underwriting-4",
+      "target": "break-resolution-5",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-8",
+      "source": "break-resolution-5",
+      "target": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    }
+  ],
+  "preview": "Transfer Intake → Retrieve → Ground → Risk Scoring → Portfolio Check → Sanctions Screening → Limit Control → Underwriting → Break Resolution → Case Closure",
+  "featured": false,
+  "createdAt": "2025-08-05T19:58:43.940Z",
+  "author": "AgentBridge Team",
+  "deployments": 2764,
+  "lastDeployed": "2026-03-31T16:53:55.768Z",
+  "configuration": {
+    "provider": "gcp",
+    "region": "us-west-2",
+    "compute": "memory-optimized"
+  },
+  "healthStatus": "error",
+  "deploymentCount": 1362,
+  "githubRepo": "https://github.com/agentbridge/advisor-for-stress-test",
+  "maintainer": "AgentBridge Team",
+  "agenticLayers": {
+    "reasoning": {
+      "modelType": "gpt-4o",
+      "reasoningPattern": "ReAct",
+      "contextWindow": 128000,
+      "memorySystem": "hybrid",
+      "decisionFramework": "Multi-Criteria Decision Analysis"
+    },
+    "orchestration": {
+      "workflowEngine": "n8n",
+      "coordinationPattern": "centralized",
+      "failoverStrategy": "retry",
+      "loadBalancing": "intelligent"
+    },
+    "protocol": {
+      "communicationProtocol": "MCP",
+      "messageFormat": "JSON",
+      "authenticationMethod": "OAuth2",
+      "encryptionStandard": "AES-256"
+    },
+    "governance": {
+      "policyEngine": "OPA",
+      "complianceStandards": [
+        "SOC2",
+        "GDPR"
+      ],
+      "auditTrail": true,
+      "riskAssessment": "medium",
+      "dataClassification": "internal"
+    },
+    "observability": {
+      "metricsCollection": "Prometheus",
+      "loggingFramework": "ELK",
+      "tracingSystem": "Jaeger",
+      "alertingRules": [],
+      "dashboardConfig": {
+        "layout": "grid",
+        "widgets": [
+          "metrics",
+          "logs",
+          "traces"
+        ],
+        "refreshInterval": 30
+      }
+    },
+    "intelligence": {
+      "learningCapability": "online",
+      "knowledgeBase": "vector-db",
+      "adaptationMechanism": "ml-based",
+      "performanceOptimization": "ai-driven"
+    }
+  },
+  "businessFunction": "data-preparation-node",
+  "autonomyLevel": "semi-autonomous",
+  "cognitiveCapabilities": [
+    {
+      "name": "Pattern Recognition",
+      "description": "Identifies patterns in business processes",
+      "confidenceLevel": 0.85,
+      "lastUpdated": "2026-04-14T19:58:44.015Z"
+    }
+  ],
+  "roiMetrics": {
+    "costSavings": 57424,
+    "timeReduction": 63,
+    "accuracyImprovement": 38,
+    "throughputIncrease": 54,
+    "errorReduction": 44
+  },
+  "complianceFramework": {
+    "standards": [
+      "SOC2",
+      "GDPR",
+      "ISO27001"
+    ],
+    "certifications": [
+      "SOC2 Type II"
+    ],
+    "auditFrequency": "monthly",
+    "lastAudit": "2026-03-25T15:19:30.326Z"
+  },
+  "scalingPolicy": {
+    "minInstances": 1,
+    "maxInstances": 10,
+    "scaleUpThreshold": 80,
+    "scaleDownThreshold": 20,
+    "cooldownPeriod": 300
+  }
+}
